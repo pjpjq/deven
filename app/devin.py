@@ -20,7 +20,7 @@ async def create_session(api_key: str, org_id: str, task: str) -> dict:
         response = await client.post(
             f"{DEVIN_API}/{org_id}/sessions",
             headers={"Authorization": f"Bearer {api_key}"},
-            json={"prompt": prompt},
+            json={"prompt": prompt, "repos": ["pjpjq/deven"]},
         )
         response.raise_for_status()
         return response.json()
